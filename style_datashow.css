@@ -1,0 +1,555 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,600,400);
+/**  Basic Page CSS **/
+body{
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+}
+
+p {
+    color: #212121;
+}
+
+/*base*/
+
+/*normal button*/
+button {
+  color: #000;
+  background-color: #DDDDDD;
+  border: none;
+  border-radius: 3px;
+  border: 1px solid rgb(100, 100, 100);
+  box-shadow: 0 1px #A0A0A0;
+  width: 100px;
+  height: 30px;
+
+}
+
+button:hover,
+button.hover {
+  background-color: #CCCCCC;
+}
+
+button:active,
+button.active {
+  background-color: #6D6D6D;
+  box-shadow: 0 1px #212121;
+  transform: translateY(1px);
+}
+/*base end*/
+
+/*header*/
+.header {
+    float: none;
+    height: 40px;
+    margin-left: auto;
+    margin-top: 10px;
+    clear: none;
+    width: 800px;
+    margin-right: auto;
+}
+
+.brand {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: auto;
+}
+
+.image {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+.round_one {
+    float: right;
+    font-size: 1em;
+    width: 90px;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+    position: static;
+    top: 0px;
+    left: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 10px;
+    border-width: 1px;
+    background-color: #212121;
+    padding: 4px;
+}
+
+.discussion {
+    float: right;
+    font-size: 1em;
+    width: 90px;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 4px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 10px;
+}
+
+.decision {
+    float: right;
+    font-size: 1em;
+    width: 90px;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 4px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 10px;
+}
+
+.stepmarker {
+    float: right;
+    font-size: 1em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 4px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 10px;
+}
+
+
+.breadcrumb {
+    float: right;
+    height: auto;
+    margin: 4px 0px 0px;
+    clear: none;
+    width: auto;
+    overflow: inherit;
+}
+
+.ranking {
+    float: right;
+    font-size: 1em;
+    width: 90px;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 10px;
+    padding: 3px;
+    border: 1px solid #212121;
+}
+
+/*header end*/
+
+/*delphi survey*/
+
+.delphi {
+    float: none;
+    height: 600px;
+    margin-left: auto;
+    margin-top: 20px;
+    clear: none;
+    width: 800px;
+    margin-right: auto;
+    display: block;
+}
+
+
+
+/*issues label*/
+.issuesbg {
+    float: left;
+    height: 560px;
+    margin-left: 0%;
+    clear: both;
+    width: 100%;
+    background-image:url("img/issue_bg.png");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    margin-right: 0%;
+    display: block;
+    background-position: 0% 0%;
+    background-repeat: repeat repeat;
+}
+
+.issuestitle {
+    float: left;
+    font-size: 16px;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    font-weight: normal;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 0%;
+    background-color: rgb(224, 224, 224);
+    display: block;
+}
+/*issues label end*/
+
+/*axis record*/
+
+.axis_window {
+    float: left;
+    height: 600px;
+    margin: 0 0 0 0px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    position: relative;
+    width: 600px;
+}
+
+.axis_record {
+    float: left;
+    height: 1200px;
+    clear: none;
+    width: 1200px;
+    position: absolute;
+    top: auto;
+    left: 0%;
+    bottom: 0px;
+    display: block;
+    background-image:url("img/axis_bg_1200.svg"),-webkit-linear-gradient(225deg, rgba(255, 114, 114, 0.670588) 0%, rgba(255, 255, 255, 0.478431) 74%, white 100%),url("img/cell_bg.svg");
+    background-image: url("img/axis_bg_1200.svg"), linear-gradient(225deg, rgba(255, 114, 114, 0.670588) 0%, rgba(255, 255, 255, 0.478431) 74%, white 100%), url("img/cell_bg.svg");
+    background-attachment: scroll;
+    -webkit-background-size: auto;
+    background-size: auto;
+    z-index: -1;
+    background-position: 0% 0%;
+    background-repeat: repeat repeat;
+}
+
+/*axis record end*/
+
+
+/*issue label */
+.issues {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 180px;
+    position: relative;
+    display: block;
+}
+
+.issuetag {
+    float: left;
+    height:auto;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 35px;
+    clear: none;
+    width: 150px;
+    background-color: rgb(219, 186, 186);
+    display: block;
+}
+
+
+
+
+#clabel {
+    float: left;
+    height: 20px;
+    margin-left: 0%;
+    margin-top: -20px;
+    clear: none;
+    width: 60px;
+    background-color: rgb(100, 100, 100);
+    margin-right: 0%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    display: block;
+}
+
+.ctext {
+    float: none;
+    font-size: 12px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 800;
+    line-height: 1em;
+    margin-left: 5px;
+    margin-top: 5px;
+    clear: none;
+    min-height: 0px;
+    color: rgb(255, 255, 255);
+}
+
+.slabel{
+
+    background: rgb(224, 224, 224);
+    float: left;
+    height: 20px;
+    left: 0;
+    margin: -20px 0 0 60px;
+    top: 0;
+    width: 65px;
+}
+
+#stext {
+    color: rgb(85, 85, 85);
+    font-size: 12px;
+    margin: 2px 0 0;
+    text-align: center;
+}
+
+
+.issuetopic {
+    color: rgb(19, 19, 19);
+    font-size: 13px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height:60px;
+    padding: 5px 0 0 0;
+    text-align: left;
+    width: 140px;
+}
+
+.issuecontext{
+    border-top: 1px solid rgb(129, 129, 129);
+    color: rgb(19, 19, 19);
+    font-size: 13px;
+    margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 5px 0;
+    text-align: left;
+    width: 140px;
+}
+
+
+.twoyears{
+    float: right;
+    font-size: 12px;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: normal;
+    line-height: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    min-height: 0px;
+    margin-right: 0%;
+    padding-right: 10px;
+    padding-top: 5px;
+    color: rgb(255, 255, 255);
+
+}
+
+.darrow {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 6px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+
+
+.issueclick {
+    border-top: 1px solid rgb(255, 255, 255);
+    height: 20px;
+    margin: 5px auto 0;
+    width: 140px;
+}
+
+/*issue label end*/
+
+/*btn_panel*/
+.btnpanel {
+    float: left;
+    height: 600px;
+    margin-left: 20px;
+    margin-top: 0px;
+    clear: none;
+    width: 180px;
+}
+
+.panel {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 180px;
+    min-width: 0px;
+    background-color: rgb(255, 236, 236);
+}
+
+.panellabel {
+    float: left;
+    font-size: 18px;
+    font-weight: normal;
+    width: auto;
+    height: auto;
+    text-align: left;
+    clear: none; 
+    margin-left: 5px;
+}
+#risktext{
+    color: rgb(193, 138, 138);
+}
+
+#chancetext{
+    color: #509B94;
+}
+
+#regiontext{
+    color: #212121;
+}
+
+
+#regionpanel {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 20px;
+    clear: both;
+    width: 100%;
+    min-width: 0px;
+    margin-right: 0%;
+    background-color: rgb(237, 237, 237);
+}
+
+.btncarage {
+    float: left;
+    height: auto;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: both;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+
+.yearbtn{
+    float:left;
+    margin:5px;
+    width: 70px;
+    height: 26px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+}
+
+.regionbtn{
+    float:left;
+    margin:5px;
+    width: 70px;
+    height: 26px;
+    font-size: 14px;
+    color: #212121;
+    
+}
+.regionbtn_on {
+    float:left;
+    margin:5px;
+    width: 70px;
+    height: 26px;
+    font-size: 14px;
+    color: #FFF;
+    background-color: #606060;
+}
+.regionbtn_on:hover {
+    background-color: #606060;
+}
+
+
+
+#risk_2y_btn{
+    background-color: rgb(219, 186, 186);
+}
+
+
+#risk_2yto15y_btn {
+    background-image:-webkit-linear-gradient(137deg, rgb(193, 138, 138) 49%, rgb(219, 186, 186) 56%);
+    background-image: linear-gradient(313deg, rgb(193, 138, 138) 49%, rgb(219, 186, 186) 56%);
+}
+
+#risk_15y_btn{
+    background-color: rgb(193, 138, 138);
+}
+
+#chance_2y_btn{
+    background-color: #B0C6C4;
+}
+
+
+#chance_2yto15y_btn {
+    background-image:-webkit-linear-gradient(137deg,  #509B94 49%,  #B0C6C4 56%);
+    background-image: linear-gradient(313deg, #509B94 49%,   #B0C6C4 56%);
+}
+
+#chance_15y_btn{
+    background-color: #509B94;
+}
+
+
+
+/*btn_panel_end*/
+
+
+
+/*delphi survey end*/
+
+
+/*control panel*/
+.control {
+    float: none;
+    height: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    clear: none;
+    width: 800px;
+    margin-right: auto;
+}
+
+#reset {
+    float: left;
+    margin-left: 20px;
+
+
+}
+
+#next {
+    float: right;
+    margin-right: 20px;
+}
+/*control panel end*/
+
+

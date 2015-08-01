@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Delphi Survey</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style_send_2y.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <div class="header">
+            <div class="brand">
+                <img class="image" src="img/logo.svg" class="image" />
+            </div>
+            <div class="breadcrumb">
+                <p class="decision">
+                Decision
+                </p>
+                <p class="stepmarker">
+                &gt;
+                </p>
+                <p class="discussion">
+                Discussion
+                </p>
+                <p class="stepmarker">
+                &gt;
+                </p>
+                <p class="ranking">
+                Ranking
+                </p>
+                <p class="round_one">
+                Round One
+                </p>
+            </div>
+  </div>	
+</header>
+
+<div class="delphi">
+  <div id="axis_window"class="axis_window" >
+    <div class="issues">
+      <title class="issuestitle">Issues</title>
+      <div id="issuesbg"class="issuesbg">
+        <div id="issue1" class="issuetag">
+          <div id="clabel">
+            <p class="ctext">
+            COUCAC
+            </p>
+            </div>
+            <div class="slabel">
+            <div id="stext">
+            <div id="fplace"></div>
+            </div>
+            </div>
+            <h3 class="issuetopic">
+            Extreme weather events and natural catastrophes
+            </h3>
+            <p class="issuecontext">
+            Extreme weather events and natural catastrophes Extremeeme 
+            </p>        
+              <div class="issueclick">
+              <img class="darrow" src="img/openarrow.svg"/>
+              <div class="twoyears">2 Years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="axis_record" class="axis_record">
+    </div>
+  </div>
+</div>
+
+<div class="control">
+  <button id="reset"class="btn" type="submit" name="reset">Reset
+  </button>
+  <form action="javascript:alert( 'success!' );">
+  <div>
+    <input type="text">
+  </div>
+</form>
+  <button id="next" class="btn" type="submit" name="action">Submit
+  </button>
+</div>
+
+
+<script type="text/javascript">
+
+$(function() {
+    $( "#issue1" ).draggable({ opacity: 0.35 , revert: "invalid",
+            drag: function( event, ui ) {
+            var offset = $("#issue1").offset();
+            var xPos = offset.left;
+            var yPos = offset.top;
+            $("#fplace").text('I: ' + xPos+'\n'+'L: ' + yPos);
+        }
+
+     });
+    $( "#axis_record" ).droppable({
+        
+    });
+
+
+    $( "#issuesbg" ).droppable({
+        drop: function( event, ui ){
+        $( "#issue1" ).animate({"left": "0px", "top": "0px"}, "slow");
+    }
+    });
+
+    
+
+    $( ".issueclick" ).click(function() {
+       $( ".issuecontext" ).toggle( "slow", function() {
+        });
+    });
+
+   $("#next").click(function(){
+     var first_place;
+     var second_place;
+     xPos=$("#issue1").offset().left; 
+     yPos=$("#issue1").offset().top; 
+     alert("first element place: "+xPos+'\n'+"second element place: "+yPos);
+    
+    /* write data to google sheet through google forms*/
+
+    var xhr = new XMLHttpRequest();
+    var url = 'https://docs.google.com/a/sva.edu/forms/d/1CZmaOGo8vEK3pruvB7YDU7CA1SerYJPAbGhAfLLtz6o/formResponse?' + 
+             
+             // how do I get the text value and write into the google form. (Error)
+             //'entry.2106100540=' + username + '&' +
+             'entry.1465922063=' + xPos + '&' +
+             'entry.1900229419=' + yPos + '&' +
+             'submit=submit';
+    xhr.open('GET', url, true);
+    xhr.send();
+    
+    });
+
+
+
+
+});
+ 
+  </script>
+</body>
