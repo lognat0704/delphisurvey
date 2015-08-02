@@ -121,56 +121,53 @@
             <button id="reset">Back</button>
             <button id="next">Next</button>
     </section>
-        </div>
+</div>
 
 
 
 <script type="text/javascript">
 
-$(function() {
-    //get data from Googlesheet
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://spreadsheets.google.com/feeds/list/1DUAWKiqsSXpmoWCBG004n0i63vdKbaDeAOlC581uKYE/1/public/values?alt=json-in-script', true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4) {
-        if (xhr.status == 200) {
-          var json = xhr.responseText;
-          var obj = JSON.parse(json.slice(28,json.length-2));
-          var data = 'Location:' + obj.feed.entry[0].gsx$name.$t + '\n' + 
-                     'name:'    +obj.feed.entry[0].gsx$regions.$t+'\n' +
-                     '2y_xaxis:' + obj.feed.entry[0].gsx$yxaxis.$t + '\n' + 
-                     '2y_yaxis:' + obj.feed.entry[0].gsx$yyaxis.$t + '\n' + 
-                     '15y_xaxis:' + obj.feed.entry[0].gsx$yxaxis_2.$t + '\n' + 
-                     '15y_yaxis:' + obj.feed.entry[0].gsx$yyaxis_2.$t;
-          alert(data);
-        } else {
-          alert('Network error occured.');
-        }
-      }
-    };
-    xhr.send();
- 
-    // make Div move to it's XY postion. (Error)
-    var xPos = obj.feed.entry[0].gsx$yxaxis.$t
-    var yPos = obj.feed.entry[0].gsx$yyaxis.$t
+function drawObj(name, location, twoYrX, twoYrY, fifYrX, fifYrY) {
+  
+  // printing values to the console to ensure accuracy.
+  //console.log("Two Year:", name, location, twoYrX, twoYrY);
+  //console.log("Fifteen Year:", name, location, fifYrX, fifYrY);
 
-    $( "#issue1" ).offset({ xPos, yPos});
+  // create new divs based on the two year and fifteen year positions of issues.
+  // so, the row with name "test1" will have two divs:
+  // <div id="issue-2y-test1" class="issuetag test1">
+  // <div id="issue-15y-test1" class="issuetag test1">
+  // this way you can position each one individually, 
+  // but connect a line between two issues of the same class. (test1 in this example)
 
-    // And show it's value (Error)
-    
-    var offset = $("#issue1").offset();
-    var xPos = offset.left;
-    var yPos = offset.top;
-    $("#fplace").text('I: ' + xPos+'\n'+'L: ' + yPos);
-    
+  var newDiv1 = '<div id="issue-2y-' + name + '" class="issuetag ' + name + '">I am 2y  ' + name + '</div>';
+  var newDiv2 = '<div id="issue-15y-' + name + '" class="issuetag ' + name + '">I am 15y ' + name + '</div>';
 
-    $( ".issueclick" ).click(function() {
-       $( ".issuecontext" ).toggle( "slow", function() {
-        });
-    });
+  // we then add these divs to the graph.
+  $('.axis_window').append(newDiv1);
+  $('.axis_window').append(newDiv2);
 
+  // Now we draw divs should be drawn on the graph based on their X & Y values.
+  $('#issue-2y-' + name).css({left: parseInt(twoYrX), top: parseInt(twoYrY), position: 'absolute'});
+  $('#issue-15y-' + name).css({left: parseInt(fifYrX), top: parseInt(fifYrY), position: 'absolute'});
+}
 
+var url = 'https://spreadsheets.google.com/feeds/list/1DUAWKiqsSXpmoWCBG004n0i63vdKbaDeAOlC581uKYE/1/public/values?alt=json';
 
+// use jQuery $.get to retrieve data
+$.get(url, function(data) {
+
+  // for each entry in the data
+  $.each(data.feed.entry, function(row, data) {
+
+    // draw the object on the graph
+    drawObj(data.gsx$name.$t, 
+            data.gsx$location.$t,
+            data.gsx$twoyxaxis.$t, 
+            data.gsx$twoyyaxis.$t,
+            data.gsx$fifteenyxaxis.$t, 
+            data.gsx$fifteenyyaxis.$t);
+  });
 
 });
  
