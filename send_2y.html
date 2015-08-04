@@ -53,7 +53,7 @@
             </div>
             <div class="slabel">
             <div id="stext">
-            <div id="fplace"></div>
+            <div class="fplace"></div>
             </div>
             </div>
             <h3 class="issuetopic">
@@ -75,7 +75,7 @@
             </div>
             <div class="slabel">
             <div id="stext">
-            <div id="fplace"></div>
+            <div class="fplace"></div>
             </div>
             </div>
             <h3 class="issuetopic">
@@ -102,7 +102,7 @@
 
   <form action="javascript:alert( 'success!' );">
     <div>
-      Name<input type="text"> 
+      Name<input type="text" id="username"> 
     </div>
   </form>
   <select id="user_location">            
@@ -131,8 +131,20 @@ $(document).ready(function() {
     drag: function(event, ui) {
       var xPos = $(this).css('left').replace('px','');
       var yPos = $(this).css('top').replace('px','');
+      
       // I would like to show ths XY in fplace div,but it's not work..
-      $(this).children("#fplace").text('I: ' + xPos + '\nL: ' + yPos);
+      // $(this).children("#fplace").text('I: ' + xPos + '\nL: ' + yPos);
+
+      // ^ above is the original command.
+      // it does not work because an HTML document should only have one ID.
+      // with each issue having a sub-element with an ID of "fplace", 
+      // jQuery cannot decipher which element is the main ID "fplace".
+      // so, we use classes.
+      // I have replaced the instances of 'id="fplace"' with 'class="fplace"'
+      // we can now use the following jQuery command:
+
+      $(this).find('.fplace').text('I: ' + xPos + '\nL: ' + yPos);
+
     }
   });
 
@@ -145,9 +157,25 @@ $(document).ready(function() {
       $('#issue1').animate({'left':'0px', 'top': '0px'}, 'slow');
     }
   });
+  
   // I try to build click A div and toggle A instead of div B,but it's not working...
-  $(this).children('.issueclick').click(function() {
-    $(this).children('.issuecontext').toggle('slow');
+  //$(this).children('.issueclick').click(function() {
+  //  $(this).children('.issuecontext').toggle('slow');
+  //});
+
+  $('.issueclick').click(function() {
+    $(this) // take the specific item that was clicked
+      .closest('.issuetag') // navigate up the tree to the closest .issuetag
+      .find('p.issuecontext') // navigate back down the tree to the closest issuecontext
+      .toggle('slow'); // show the issuecontext
+
+      // you can also write this as $(this).closest('.issuetag').find('p.issuecontext').toggle('slow') and it will work just as well. 
+    
+    $('.issueclick') // find all issueclicks
+      .not(this) // except the specific one that was clicked
+      .closest('.issuetag') // navigate up the tree to their closest .issuetags
+      .find('p.issuecontext') // navigate back down the tree to the closest issuecontexts
+      .hide('slow'); // hide them
   });
 
   // upon clicking the #next button
@@ -160,17 +188,24 @@ $(document).ready(function() {
       // get the individual issue
       var jq_selector = $('#'+tag.id);
       // get the data to submit
+      
       // editor's name
-      var name = $(input).val();
+      // Joseph note: I added an ID to this input value.
+      var name = $('input#username').val();
+
       // loaction from options
-      var location = $(jq_selector).find('#user_location option:selected').text().trim();
+      var location = $('#user_location option:selected').text().trim();
+      
       //issues serials
-      var issueserial =$ ('#'+tag.id);
+      // Joseph note: I am not completely sure what you are trying to capture with this line.
+      // Is it the issue's ID?
+      var issueserial = $('#'+tag.id).attr('id');
+
       var xPos = $(jq_selector).css('left').replace('px','');
       var yPos = $(jq_selector).css('top').replace('px','');
 
       form_data = {'entry.2106100540':name,'entry.1416526146':location, 'entry.1440872521': issueserial, 'entry.1465922063': xPos, 'entry.1900229419': yPos};
-      // fifteen_X 'entry.1899526986' ,fifteen_Y 'entry.1845633187'
+      
       // post to google form
       $.post(url, form_data, function(response_data) {
         console.log(response_data);
