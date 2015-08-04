@@ -69,7 +69,7 @@
         </div>
         <div id="issue2" class="issuetag">
           <div id="clabel">
-            <p class="ctext issue_location">
+            <p class="ctext">
               ETV
             </p>
             </div>
@@ -99,11 +99,22 @@
 <div class="control">
   <button id="reset"class="btn" type="submit" name="reset">Reset
   </button>
+
   <form action="javascript:alert( 'success!' );">
     <div>
-      <input type="text">
+      Name<input type="text"> 
     </div>
   </form>
+  <select id="user_location">            
+  <option value="CEE/CIS">CEE/CIS</option>
+  <option value="EAP">EAP</option>
+  <option value="ESA">ESA</option>
+  <option value="LAC">LAC</option>
+  <option value="MENA">MENA</option>
+  <option value="SA">SA</option>
+  <option value="WCA">WCA</option>
+  </select>
+
   <button id="next" class="btn" type="submit" name="action">Submit
   </button>
 </div>
@@ -118,8 +129,10 @@ $(document).ready(function() {
     opacity: 0.35, 
     revert: "invalid",
     drag: function(event, ui) {
-      var offset = $('#axis_record').offset();
-      $('#fplace').text('I: ' + offset.left + '\nL: ' + offset.top);
+      var xPos = $(this).css('left').replace('px','');
+      var yPos = $(this).css('top').replace('px','');
+      // I would like to show ths XY in fplace div,but it's not work..
+      $(this).children("#fplace").text('I: ' + xPos + '\nL: ' + yPos);
     }
   });
 
@@ -132,9 +145,9 @@ $(document).ready(function() {
       $('#issue1').animate({'left':'0px', 'top': '0px'}, 'slow');
     }
   });
-
-  $('.issueclick').click(function() {
-    $('.issuecontext').toggle('slow');
+  // I try to build click A div and toggle A instead of div B,but it's not working...
+  $(this).children('.issueclick').click(function() {
+    $(this).children('.issuecontext').toggle('slow');
   });
 
   // upon clicking the #next button
@@ -144,17 +157,20 @@ $(document).ready(function() {
 
     // for each issue tag
     $.each($('.issuetag'), function(idx, tag) {
-
       // get the individual issue
       var jq_selector = $('#'+tag.id);
-
       // get the data to submit
-      var location = $(jq_selector).find('.issue_location').text().trim();
+      // editor's name
+      var name = $(input).val();
+      // loaction from options
+      var location = $(jq_selector).find('#user_location option:selected').text().trim();
+      //issues serials
+      var issueserial =$ ('#'+tag.id);
       var xPos = $(jq_selector).css('left').replace('px','');
       var yPos = $(jq_selector).css('top').replace('px','');
 
-      form_data = {'entry.2106100540': location, 'entry.1465922063': xPos, 'entry.1900229419': yPos};
-
+      form_data = {'entry.2106100540':name,'entry.1416526146':location, 'entry.1440872521': issueserial, 'entry.1465922063': xPos, 'entry.1900229419': yPos};
+      // fifteen_X 'entry.1899526986' ,fifteen_Y 'entry.1845633187'
       // post to google form
       $.post(url, form_data, function(response_data) {
         console.log(response_data);
