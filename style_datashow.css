@@ -260,7 +260,7 @@ button.active {
     display: block;
 }
 
-.issuetag {
+.issuetagtwo {
     float: left;
     height:auto;
     padding-bottom: 10px;
@@ -269,7 +269,19 @@ button.active {
     clear: none;
     width: 150px;
     background-color: rgb(219, 186, 186);
-    display: block;
+    display: none;
+}
+
+.issuetagfifteen {
+    float: left;
+    height:auto;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 35px;
+    clear: none;
+    width: 150px;
+    background-color: #C18A8A;
+    display: none;
 }
 
 
@@ -313,7 +325,7 @@ button.active {
     left: 0;
     margin: -20px 0 0 60px;
     top: 0;
-    width: 65px;
+    width: 90px;
 }
 
 #stext {
@@ -490,31 +502,31 @@ button.active {
 
 
 
-#risk_2y_btn{
+#risk_two_btn{
     background-color: rgb(219, 186, 186);
 }
 
 
-#risk_2yto15y_btn {
+#risk_twotofifteen_btn {
     background-image:-webkit-linear-gradient(137deg, rgb(193, 138, 138) 49%, rgb(219, 186, 186) 56%);
     background-image: linear-gradient(313deg, rgb(193, 138, 138) 49%, rgb(219, 186, 186) 56%);
 }
 
-#risk_15y_btn{
+#risk_fifteen_btn{
     background-color: rgb(193, 138, 138);
 }
 
-#chance_2y_btn{
+#chance_two_btn{
     background-color: #B0C6C4;
 }
 
 
-#chance_2yto15y_btn {
+#chance_twotofifteen_btn {
     background-image:-webkit-linear-gradient(137deg,  #509B94 49%,  #B0C6C4 56%);
     background-image: linear-gradient(313deg, #509B94 49%,   #B0C6C4 56%);
 }
 
-#chance_15y_btn{
+#chance_fifteen_btn{
     background-color: #509B94;
 }
 
@@ -522,6 +534,9 @@ button.active {
 
 /*btn_panel_end*/
 
+.show{
+    display: block;
+}
 
 
 /*delphi survey end*/

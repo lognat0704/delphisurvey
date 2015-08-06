@@ -46,72 +46,74 @@
 
 
 <div class="delphi">
-      <div class="axis_window" >
-              <div id="issue1" class="issuetag">
-          <div id="clabel">
-            <p class="ctext">
-            COUCAC
-            </p>
-            </div>
-            <div class="slabel">
-            <div id="stext">
-            <div id="fplace"></div>
-            </div>
-            </div>
-            <h3 class="issuetopic">
-            Extreme weather events and natural catastrophes
-            </h3>
-            <p class="issuecontext">
-            Extreme weather events and natural catastrophes Extremeeme 
-            </p>        
-              <div class="issueclick">
-              <img class="darrow" src="img/openarrow.svg"/>
-              <div class="twoyears">2 Years</div>
-          </div>
-        </div>
-            <div class="axis_record">
-            </div>
+  <div class="axis_window" >
+    <div id="issue1" class="issuetag">
+      <div id="clabel">
+        <p class="ctext">
+        COUCAC
+        </p>
       </div>
-      <div class="btnpanel" >
-        <div class="panellabel">
-            <label id="risktext">
-            Risk
-            </label>
+      <div class="slabel">
+        <div id="stext">
+          <div id="fplace"></div>
         </div>
-        <div class="btncarage" >
-            <button class="yearbtn" id="risk_2y_btn">2Y</button>
-            <button class="yearbtn" id="risk_2yto15y_btn">2-15Y</button>
-            <button class="yearbtn" id="risk_15y_btn">15Y</button>
+      </div>
+      <h3 class="issuetopic">
+      Extreme weather events and natural catastrophes
+      </h3>
+      <p class="issuecontext">
+      Extreme weather events and natural catastrophes Extremeeme 
+      </p>        
+        <div class="issueclick">
+          <img class="darrow" src="img/openarrow.svg"/>
+          <div class="twoyears">2 Years</div>
         </div>
-        <div class="panellabel">
-            <label id="chancetext">
-            Chance
-            </label>
-        </div>
-        <div class="btncarage" >
-            <button class="yearbtn" id="chance_2y_btn">2Y</button>
-            <button class="yearbtn" id="chance_2yto15y_btn">2-15Y</button>
-            <button class="yearbtn" id="chance_15y_btn">15Y</button>
-        </div>
+    </div>
+    <div class="axis_record">
+    </div>
+  </div>
 
-        <div class="panellabel">
-            <label id="regiontext">
-            Regions
-            </label>
-        </div>
-        <div class="btncarage" >
-            <button class="regionbtn_on" id="All">All</button>
-            <button class="regionbtn" id="You">You</button>
-            <button class="regionbtn" id="CEE/CI">CEE/CIS</button>
-            <button class="regionbtn" id="EAP">EAP</button>
-            <button class="regionbtn" id="ESA">ESA</button>
-            <button class="regionbtn" id="LAC">LAC</button>
-            <button class="regionbtn" id="MENA">MENA</button>
-            <button class="regionbtn" id="SA">SA</button>
-            <button class="regionbtn" id="WCA">WCA</button>
-        </div>
-    
-      </div>
+
+  <div class="btnpanel" >
+    <div class="panellabel">
+        <label id="risktext">
+        Risk
+        </label>
+    </div>
+    <div class="btncarage" >
+        <button class="yearbtn" id="risk_2y_btn">2Y</button>
+        <button class="yearbtn" id="risk_2yto15y_btn">2-15Y</button>
+        <button class="yearbtn" id="risk_15y_btn">15Y</button>
+    </div>
+    <div class="panellabel">
+        <label id="chancetext">
+        Chance
+        </label>
+    </div>
+    <div class="btncarage" >
+        <button class="yearbtn" id="chance_2y_btn">2Y</button>
+        <button class="yearbtn" id="chance_2yto15y_btn">2-15Y</button>
+        <button class="yearbtn" id="chance_15y_btn">15Y</button>
+    </div>
+
+    <div class="panellabel">
+        <label id="regiontext">
+        Regions
+        </label>
+    </div>
+    <div class="btncarage" >
+      <button class="regionbtn_on" id="All">All</button>
+      <button class="regionbtn" id="You">You</button>
+      <button class="regionbtn" id="CEE/CI">CEE/CIS</button>
+      <button class="regionbtn" id="EAP">EAP</button>
+      <button class="regionbtn" id="ESA">ESA</button>
+      <button class="regionbtn" id="LAC">LAC</button>
+      <button class="regionbtn" id="MENA">MENA</button>
+      <button class="regionbtn" id="SA">SA</button>
+      <button class="regionbtn" id="WCA">WCA</button>
+    </div>
+
+  </div>
 
 </div>
 
@@ -148,7 +150,7 @@ function drawObj(name, location, twoYrX, twoYrY, fifYrX, fifYrY) {
   $('.axis_window').append(newDiv2);
 
   // Now we draw divs should be drawn on the graph based on their X & Y values.
-  $('#issue-2y-' + name).css({left: parseInt(twoYrX), top: parseInt(twoYrY), position: 'absolute});
+  $('#issue-2y-' + name).css({left: parseInt(twoYrX), top: parseInt(twoYrY), position: 'absolute'});
   $('#issue-15y-' + name).css({left: parseInt(fifYrX), top: parseInt(fifYrY), position: 'absolute'});
 }
 

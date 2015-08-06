@@ -180,7 +180,6 @@ button.active {
 }
 
 
-
 /*issues label*/
 .issuesbg {
     float: left;
@@ -413,16 +412,62 @@ button.active {
 
 #reset {
     float: left;
-    margin-left: 20px;
-
-
+    height: auto;
+    font-size: 1em;
+    margin-left: 10px;
+    margin-top: 0px;
+    clear: none;
+    width: auto;
 }
 
 #next {
     float: right;
-    margin-right: 20px;
+    height: auto;
+    font-size: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: auto;
+    margin-right: 10px;
 }
 
+.formgroup{
+    float: right;
+    height: auto;
+    display: block;
+    text-align: right;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: auto;
+    min-height: auto;
+    margin-right: 25px;
+}
+
+.regiontext {
+    float: none;
+    font-size: 1em;
+    width: auto;
+    height: auto;
+    text-align: right;
+    font-weight: normal;
+    line-height: 1em;
+    padding: 0em 0.5em;
+    display: inline-block;
+}
+
+.formgroup1 {
+    float: right;
+    height: auto;
+    display: block;
+    text-align: right;
+    margin-left: 0px;
+    margin-top: 0px;
+    clear: none;
+    width: auto;
+    min-height: auto;
+    margin-right: 25px;
+}
 
 
 /*control panel end*/
