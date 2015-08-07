@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Delphi Survey</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style_datashow.css">
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/jquery.line.js"></script>
+          
+</head>
+
+<body>
+
+<header>
+<div class="header">
+            <div class="brand">
+                <img class="image" src="img/logo.svg" class="image" />
+            </div>
+            <div class="breadcrumb">
+                <p class="decision">
+                Decision
+                </p>
+                <p class="stepmarker">
+                &gt;
+                </p>
+                <p class="discussion">
+                Discussion
+                </p>
+                <p class="stepmarker">
+                &gt;
+                </p>
+                <p class="ranking">
+                Ranking
+                </p>
+                <p class="round_one">
+                Round One
+                </p>
+            </div>
+        </div>	
+</header>
+
+
+<div class="delphi">
+  <div class="axis_window" >
+    <div id="issue1-twoyear" class="issuetagtwo show">
+      <div id="clabel">
+        <p class="ctext">
+        You
+        </p>
+      </div>
+      <div class="slabel">
+        <div id="stext">
+          <div class="fplace"></div>
+        </div>
+      </div>
+      <h3 class="issuetopic">
+      issue1_topic
+      </h3>
+      <p class="issuecontext">
+      issue1_context 
+      </p>        
+        <div class="issueclick">
+          <img class="darrow" src="img/openarrow.svg"/>
+          <div class="twoyears">2 Years</div>
+        </div>
+    </div>
+    <div id="issue1-fifteenyear" class="issuetagfifteen show">
+      <div id="clabel">
+        <p class="ctext">
+        You
+        </p>
+      </div>
+      <div class="slabel">
+        <div id="stext">
+          <div class="fplace"></div>
+        </div>
+      </div>
+      <h3 class="issuetopic">
+      issue2_topic
+      </h3>
+      <p class="issuecontext">
+      issue2_context
+      </p>        
+        <div class="issueclick">
+          <img class="darrow" src="img/openarrow.svg"/>
+          <div class="twoyears">15 Years</div>
+        </div>
+    </div>
+    <div id="issue2-twoyear" class="issuetagtwo show">
+      <div id="clabel">
+        <p class="ctext">
+        You
+        </p>
+      </div>
+      <div class="slabel">
+        <div id="stext">
+          <div class="fplace"></div>
+        </div>
+      </div>
+      <h3 class="issuetopic">
+      issue3_topic
+      </h3>
+      <p class="issuecontext">
+      issue3_context
+      </p>        
+        <div class="issueclick">
+          <img class="darrow" src="img/openarrow.svg"/>
+          <div class="twoyears">2 Years</div>
+        </div>
+    </div>
+    <div id="issue2-fifteenyear" class="issuetagfifteen show">
+      <div id="clabel">
+        <p class="ctext">
+        You
+        </p>
+      </div>
+      <div class="slabel">
+        <div id="stext">
+          <div class="fplace"></div>
+        </div>
+      </div>
+      <h3 class="issuetopic">
+      issue3_topic
+      </h3>
+      <p class="issuecontext">
+      issue3_context
+      </p>        
+        <div class="issueclick">
+          <img class="darrow" src="img/openarrow.svg"/>
+          <div class="twoyears">15 Years</div>
+        </div>
+    </div>
+    <div id="issue1-line"></div>
+    <div id="issue2-line"></div>
+    <div class="axis_record">
+    </div>
+  </div>
+
+
+  <div class="btnpanel" >
+    <div class="panellabel">
+        <label id="risktext">
+        Risk
+        </label>
+    </div>
+    <div class="btncarage" >
+        <button class="yearbtn" id="risk_two_btn">2Y</button>
+        <button class="yearbtn" id="risk_twotofifteen_btn">2-15Y</button>
+        <button class="yearbtn" id="risk_fifteen_btn">15Y</button>
+    </div>
+    <div class="panellabel">
+        <label id="chancetext">
+        Chance
+        </label>
+    </div>
+      <div class="btncarage" >
+          <button class="yearbtn" id="chance_two_btn">2Y</button>
+          <button class="yearbtn" id="chance_twotofifteen_btn">2-15Y</button>
+          <button class="yearbtn" id="chance_fifteen_btn">15Y</button>
+      </div>
+
+    <div class="panellabel">
+        <label id="regiontext">
+        Regions
+        </label>
+    </div>
+    <div class="btncarage" >
+      <button class="regionbtn_on" id="All_btn">All</button>
+      <button class="regionbtn" id="YOU_btn">You</button>
+      <button class="regionbtn" id="CEECIS_btn">CEE/CIS</button>
+      <button class="regionbtn" id="EAP_btn">EAP</button>
+      <button class="regionbtn" id="ESA_btn">ESA</button>
+      <button class="regionbtn" id="LAC_btn">LAC</button>
+      <button class="regionbtn" id="MENA_btn">MENA</button>
+      <button class="regionbtn" id="SA_btn">SA</button>
+      <button class="regionbtn" id="WCA_btn">WCA</button>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="control">
+    <section class="press">
+            <button id="reset">Back</button>
+            <button id="next">Next</button>
+    </section>
+</div>
+
+
+
+<script type="text/javascript">
+
+function drawObj(name,issuesserial, location, twoYrX, twoYrY, fifYrX, fifYrY) {
+  
+  //1. Hide all 25 issues 2Y and 15Y
+
+  //2-0. Load the data and add css: "display:block" and them into position based on data
+  //2-1. Show the fplace number
+
+  $('#'+issuesserial+'-twoyear').css({left: parseInt(twoYrX), top: parseInt(twoYrY), position: 'absolute'}.addClass( "show" )
+    .find('.fplace').text('I: ' + parseInt(twoYrX) + '\n L: ' + parseInt(twoYrY));
+  
+  $('#'+issuesserial+'-fifteenyear').css({left: parseInt(fifYrX), top: parseInt(fifYrY), position: 'absolute'}.addClass( "show" )
+    .find('.fplace').text('I: ' + parseInt(fifYrX) + '\n L: ' + parseInt(fifYrY));
+
+  //2-2. draw a line to connect all issues 2Y to 15Y by using jquery.line plugin
+
+  $('#'+issuesserial+'-line').line( parseInt(twoYrX) , parseInt(twoYrY), parseInt(fifYrX), parseInt(fifYrY), {color:"#D60004", stroke:2, zindex:-1});
+
+  
+  //2-3. show the location from database
+  $('#'+issuesserial+'-twoyear'>issue1>clabel>p).text(location);
+  $('#'+issuesserial+'-fifteenyear'>issue1>clabel>p).text(location);
+
+
+}
+
+
+
+
+
+var url = 'https://spreadsheets.google.com/feeds/list/1DUAWKiqsSXpmoWCBG004n0i63vdKbaDeAOlC581uKYE/1/public/values?alt=json';
+
+// use jQuery $.get to retrieve data
+$.get(url, function(data) {
+
+  // for each entry in the data
+  $.each(data.feed.entry, function(row, data) {
+
+    // draw the object on the graph
+    drawObj(
+            data.gsx$name.$t,
+            data.gsx$location.$t,
+            data.gsx$issuesserial.$t, 
+            data.gsx$twoyxaxis.$t, 
+            data.gsx$twoyyaxis.$t,
+            data.gsx$fifteenyxaxis.$t, 
+            data.gsx$fifteenyyaxis.$t);
+  });
+
+});
+
+
+
+//4-0. Button function-- add and remove class - show{ display: block};
+//4-1.Button twoyears, twotofifteen years, fifteen years, 
+
+$('#risk_two_btn').click(function() {
+$( "input[id*='twoyear']" ).addClass( "show" );
+$( "input[id*='line']" ).removeClass( "show" );
+$( "input[id*='fifteenyear']" ).removeClass( "show" );
+});
+
+
+$('#risk_twotofifteen_btn').click(function() {
+$( "input[id*='twoyear']" ).addClass( "show" );
+$( "input[id*='line']" ).addClass( "show" );
+$( "input[id*='fifteenyear']" ).addClass( "show" );
+});
+
+
+$('#risk_fifteen_btn').click(function() {
+$( "input[id*='twoyear']" ).removeClass( "show" );
+$( "input[id*='line']" ).removeClass( "show" );
+$( "input[id*='fifteenyear']" ).addClass( "show" );
+});
+
+
+     
+//4-2.Location function will add webpage after we got all survey and reorganize our database, I know the way I wrote looks like rookie....
+
+$('#All_btn').click(function() {
+  $( "input[id*='All']" ).addClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#You_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" )AddClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#CEECIS_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).AddClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#EAP_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).AddClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#EAP_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).AddClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#ESA_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).AddClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#LAC_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).AddClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#MENA_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).AddClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#SA_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).AddClass( "show" );
+  $( "input[id*='WCA']" ).removeClass( "show" );
+});
+
+$('#WCA_btn').click(function() {
+  $( "input[id*='All']" ).removeClass( "show" );
+  $( "input[id*='You']" ).removeClass( "show" );
+  $( "input[id*='CEECIS']" ).removeClass( "show" );
+  $( "input[id*='EAP']" ).removeClass( "show" );
+  $( "input[id*=ESA']" ).removeClass( "show" );
+  $( "input[id*='LAC']" ).removeClass( "show" );
+  $( "input[id*='MENA']" ).removeClass( "show" );
+  $( "input[id*='SA']" ).removeClass( "show" );
+  $( "input[id*='WCA']" ).AddClass( "show" );
+});
+
+
+
+</script>
+
+</body>

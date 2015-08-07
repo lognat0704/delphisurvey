@@ -48,7 +48,7 @@
         <div id="issue1" class="issuetag">
           <div id="clabel">
             <p class="ctext issue_location">
-              COUCAC
+              
             </p>
             </div>
             <div class="slabel">
@@ -57,10 +57,10 @@
             </div>
             </div>
             <h3 class="issuetopic">
-            Extreme weather events and natural catastrophes
+            Issutopic1
             </h3>
             <p class="issuecontext">
-            Extreme weather events and natural catastrophes Extremeeme 
+            Issutopic1 content
             </p>        
               <div class="issueclick">
               <img class="darrow" src="img/openarrow.svg"/>
@@ -70,7 +70,6 @@
         <div id="issue2" class="issuetag">
           <div id="clabel">
             <p class="ctext">
-              ETV
             </p>
             </div>
             <div class="slabel">
@@ -79,10 +78,32 @@
             </div>
             </div>
             <h3 class="issuetopic">
-            Lorem ipsum issue text
+            Issutopic2
             </h3>
             <p class="issuecontext">
-            Lorem ipsum issue text
+            Issutopic2 content
+            </p>        
+              <div class="issueclick">
+              <img class="darrow" src="img/openarrow.svg"/>
+              <div class="twoyears">2 Years</div>
+          </div>
+        </div>
+        <div id="issue3" class="issuetag">
+          <div id="clabel">
+            <p class="ctext issue_location">
+              
+            </p>
+            </div>
+            <div class="slabel">
+            <div id="stext">
+            <div class="fplace"></div>
+            </div>
+            </div>
+            <h3 class="issuetopic">
+            Issutopic3
+            </h3>
+            <p class="issuecontext">
+            Issutopic3 content
             </p>        
               <div class="issueclick">
               <img class="darrow" src="img/openarrow.svg"/>
@@ -99,24 +120,29 @@
 <div class="control">
   <button id="reset"class="btn" type="submit" name="reset">Reset
   </button>
-
-  <form action="javascript:alert( 'success!' );">
-    <div>
-      Name<input type="text" id="username"> 
-    </div>
-  </form>
-  <select id="user_location">            
-  <option value="CEE/CIS">CEE/CIS</option>
-  <option value="EAP">EAP</option>
-  <option value="ESA">ESA</option>
-  <option value="LAC">LAC</option>
-  <option value="MENA">MENA</option>
-  <option value="SA">SA</option>
-  <option value="WCA">WCA</option>
-  </select>
-
   <button id="next" class="btn" type="submit" name="action">Submit
   </button>
+  
+  <label class="formgroup">
+    <div class="regiontext">
+    Region:
+    </div>
+    <select id="user_location" class="">            
+      <option value="CEE/CIS">CEE/CIS</option>
+      <option value="EAP">EAP</option>
+      <option value="ESA">ESA</option>
+      <option value="LAC">LAC</option>
+      <option value="MENA">MENA</option>
+      <option value="SA">SA</option>
+      <option value="WCA">WCA</option>
+    </select>
+  </label>
+  <label class="formgroup1" action="javascript:alert( 'success!' );">
+    <div>
+      Name:<input type="text" id="username"> 
+    </div>
+  </label>
+
 </div>
 
 
@@ -159,9 +185,8 @@ $(document).ready(function() {
   });
   
   // I try to build click A div and toggle A instead of div B,but it's not working...
-  //$(this).children('.issueclick').click(function() {
-  //  $(this).children('.issuecontext').toggle('slow');
-  //});
+  
+  // Thank you for your supprt! What a good point. However, I toggle issue1 , it changes the position of issue2 and issue3, that's so weird....
 
   $('.issueclick').click(function() {
     $(this) // take the specific item that was clicked
