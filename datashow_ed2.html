@@ -48,7 +48,7 @@
 
 <div class="delphi">
   <div class="axis_window" >
-    <div id="issue1-twoyear" class="issuetagtwo show">
+<!--    <div id="issue1-twoyear" class="issuetagtwo show">
       <div id="clabel">
         <p class="ctext">
         You
@@ -135,7 +135,7 @@
           <img class="darrow" src="img/openarrow.svg"/>
           <div class="twoyears">15 Years</div>
         </div>
-    </div>
+    </div>-->
     <div id="issue1-line"></div>
     <div id="issue2-line"></div>
     <div class="axis_record">
@@ -204,21 +204,39 @@ function drawObj(name,issuesserial, location, twoYrX, twoYrY, fifYrX, fifYrY) {
   //2-0. Load the data and add css: "display:block" and them into position based on data
   //2-1. Show the fplace number
 
-  $('#'+issuesserial+'-twoyear').css({left: parseInt(twoYrX), top: parseInt(twoYrY), position: 'absolute'}.addClass( "show" )
-    .find('.fplace').text('I: ' + parseInt(twoYrX) + '\n L: ' + parseInt(twoYrY));
+  var newDiv1 = '<div id="' + name + '-twoyear" class="issuetag ' + name + '"></div>';
+  var newDiv2 = '<div id="' + name + '-fifteen-year" class="issuetag ' + name + '"></div>';
+ 
+  $('.axis_window').append(newDiv1);
+  $('.axis_window').append(newDiv2);
+
+  /* This appends the two year and fifteen year data to the html */
+  $('#' + name + '-twoyear').html('<div id="clabel"><p class="ctext">You</p></div><div class="slabel"><div id="stext"><div class="fplace"></div></div></div><h3 class="issuetopic">issue1_topic</h3><p class="issuecontext">issue1_context</p><div class="issueclick"><img class="darrow" src="img/openarrow.svg"/><div class="twoyears">2 Years</div></div>');
   
-  $('#'+issuesserial+'-fifteenyear').css({left: parseInt(fifYrX), top: parseInt(fifYrY), position: 'absolute'}.addClass( "show" )
-    .find('.fplace').text('I: ' + parseInt(fifYrX) + '\n L: ' + parseInt(fifYrY));
+  $('#' + name + '-twoyear')
+    .css({left: parseInt(twoYrX), top: parseInt(twoYrY), position: 'absolute'})
+      .addClass( "show" )
+        .find('.fplace').text('I: ' + parseInt(twoYrX) + '\n L: ' + parseInt(twoYrY));
+
+  $('#'+ name + '-fifteenyear').html('<div id="clabel"><p class="ctext">You</p></div><div class="slabel"><div id="stext"><div class="fplace"></div></div></div><h3 class="issuetopic">issue3_topic</h3><p class="issuecontext">issue3_context</p><div class="issueclick"><img class="darrow" src="img/openarrow.svg"/><div class="twoyears">15 Years</div></div>')
+  
+  $('#'+ name +'-fifteenyear')
+    .css({left: parseInt(fifYrX), top: parseInt(fifYrY), position: 'absolute'})
+      .addClass( "show" )
+        .find('.fplace').text('I: ' + parseInt(fifYrX) + '\n L: ' + parseInt(fifYrY));
+
 
   //2-2. draw a line to connect all issues 2Y to 15Y by using jquery.line plugin
+  /* draw the line based on the object's coordinates */
+  var lineDiv = '<div id="' + name + '-line"></div>'
+  $('.axis_window').append(lineDiv);
 
-  $('#'+issuesserial+'-line').line( parseInt(twoYrX) , parseInt(twoYrY), parseInt(fifYrX), parseInt(fifYrY), {color:"#D60004", stroke:2, zindex:-1});
+  $('#'+name+'-line').line(parseInt(twoYrX), parseInt(twoYrY), parseInt(fifYrX), parseInt(fifYrY), {color:'#D60004', stroke:2});
 
-  
-  //2-3. show the location from database
-  $('#'+issuesserial+'-twoyear'>issue1>clabel>p).text(location);
-  $('#'+issuesserial+'-fifteenyear'>issue1>clabel>p).text(location);
+  /* set location text */
 
+  $('#' + name + '-twoyear p.ctext').text(location);
+  $('#' + name + '-fifteenyear p.ctext').text(location);
 
 }
 
@@ -290,7 +308,7 @@ $('#All_btn').click(function() {
 
 $('#You_btn').click(function() {
   $( "input[id*='All']" ).removeClass( "show" );
-  $( "input[id*='You']" )AddClass( "show" );
+  $( "input[id*='You']" ).addClass( "show" );
   $( "input[id*='CEECIS']" ).removeClass( "show" );
   $( "input[id*='EAP']" ).removeClass( "show" );
   $( "input[id*=ESA']" ).removeClass( "show" );
